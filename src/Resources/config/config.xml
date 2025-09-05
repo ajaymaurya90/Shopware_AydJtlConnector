@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>JTL ERP API</title>
+        <input-field type="text" name="JtlDetail.config.baseUrl" label="Base URL" helpText="e.g. http://127.0.0.1:5883/api/eazybusiness"/>
+        <input-field type="text" name="JtlDetail.config.appId" label="X-AppId"/>
+        <input-field type="text" name="JtlDetail.config.appVersion" label="X-AppVersion"/>
+        <password-field name="JtlDetail.config.apiKey" label="API Key (Authorization: Wawi ...)"/>
+        <int-field name="JtlDetail.config.cacheTtl" label="Cache TTL (seconds)" placeholder="300" />
+        <switch-field name="JtlDetail.config.enableOnPdp" label="Enable on PDP" />
+    </card>
+
+</config>
