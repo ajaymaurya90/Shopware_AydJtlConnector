@@ -7,9 +7,8 @@
     <services>
 
         <defaults autowire="true" autoconfigure="true" public="false" />
-        <service >
-
-        </service>
+        <service id="AydJtlConnector\Service\JtlApiClient"/>
+        <service id="AydJtlConnector\Subscribers\ProductPageLoadedSubscriber" />
         <service id="AydJtlConnector\ScheduledTask\ExampleTask">
             <tag name="shopware.scheduled.task"/>
         </service>

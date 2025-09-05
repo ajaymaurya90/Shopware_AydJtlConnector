@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-//namespace Acme\JtlDetail\Service;
 namespace AydJtlConnector\Service;
 
 use Psr\Log\LoggerInterface;

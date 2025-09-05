@@ -1,0 +1,38 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
+
+{% block page_product_detail_content %}
+    {{ parent() }}
+
+    {% if page.extensions.jtlData is defined %}
+        <div class="jtl-box mt-4 p-4 border rounded">
+            <h3 class="h5 mb-2">Live data from JTL</h3>
+            <dl class="row">
+                <dt class="col-4">JTL SKU</dt>
+                <dd class="col-8">{{ page.extensions.jtlData.jtlSku }}</dd>
+
+                <dt class="col-4">JTL Item ID</dt>
+                <dd class="col-8">{{ page.extensions.jtlData.jtlItemId }}</dd>
+
+                <dt class="col-4">Free stock (sum)</dt>
+                <dd class="col-8">
+                    {% if page.extensions.jtlData.stock is not null %}
+                        {{ page.extensions.jtlData.stock|number_format }}
+                    {% else %}
+                        –
+                    {% endif %}
+                </dd>
+
+                {% if page.extensions.jtlData.stockByWh is not empty %}
+                    <dt class="col-12 mt-2">By warehouse</dt>
+                    <dd class="col-12">
+                        <ul class="list-unstyled mb-0">
+                            {% for wh, qty in page.extensions.jtlData.stockByWh %}
+                                <li>Warehouse {{ wh }}: {{ qty|number_format }}</li>
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                {% endif %}
+            </dl>
+        </div>
+    {% endif %}
+{% endblock %}

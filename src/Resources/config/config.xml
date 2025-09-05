@@ -5,12 +5,35 @@
 
     <card>
         <title>JTL ERP API</title>
-        <input-field type="text" name="JtlDetail.config.baseUrl" label="Base URL" helpText="e.g. http://127.0.0.1:5883/api/eazybusiness"/>
-        <input-field type="text" name="JtlDetail.config.appId" label="X-AppId"/>
-        <input-field type="text" name="JtlDetail.config.appVersion" label="X-AppVersion"/>
-        <password-field name="JtlDetail.config.apiKey" label="API Key (Authorization: Wawi ...)"/>
-        <int-field name="JtlDetail.config.cacheTtl" label="Cache TTL (seconds)" placeholder="300" />
-        <switch-field name="JtlDetail.config.enableOnPdp" label="Enable on PDP" />
-    </card>
+        <title lang="de-DE">JTL ERP API</title>
+        <input-field type="text">
+            <name>jtlBaseUrl</name>
+            <label>Base URL</label>
+            <defaultValue>test</defaultValue>
+        </input-field>
+        <input-field type="text">
+            <name>jtlXAppId</name>
+            <label>X-AppId</label>
+            <defaultValue>test</defaultValue>
+        </input-field>
+        <input-field type="text">
+            <name>jtlXAppVersion</name>
+            <label>X-AppVersion</label>
+            <defaultValue>test</defaultValue>
+        </input-field>
+        <input-field type="password">
+            <name>jtlApiKey</name>
+            <label>API Key (Authorization: Wawi ...)</label>
+        </input-field>
+        <input-field type="int">
+            <name>jtlTtl</name>
+            <label>Cache TTL (seconds)</label>
+            <defaultValue>300</defaultValue>
+        </input-field>
+        <input-field type="checkbox">
+            <name>jtlEnablePdp</name>
+            <label>Enable on PDP</label>
+        </input-field>
 
+    </card>
 </config>
