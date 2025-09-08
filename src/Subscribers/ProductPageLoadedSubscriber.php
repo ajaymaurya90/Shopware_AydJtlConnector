@@ -24,7 +24,8 @@ class ProductPageLoadedSubscriber implements EventSubscriberInterface
 
     public function onLoaded(ProductPageLoadedEvent $event): void
     {
-        if (!(bool) $this->config->get('JtlDetail.config.enableOnPdp')) {
+
+        if (!(bool) $this->config->get('AydJtlConnector.config.enableOnPdp')) {
             return;
         }
 

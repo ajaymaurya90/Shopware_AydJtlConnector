@@ -13,7 +13,7 @@ use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 
 class JtlApiClient
 {
-    private const CONFIG_PREFIX = 'JtlDetail.config.';
+    private const CONFIG_PREFIX = 'AydJtlConnector.config.';
 
     public function __construct(
         private readonly HttpClientInterface $httpClient,
@@ -29,14 +29,14 @@ class JtlApiClient
 
     private function baseUrl(): string
     {
-        return rtrim((string) $this->cfg('baseUrl', ''), '/');
+        return rtrim((string) $this->cfg('jtlBaseUrl', ''), '/');
     }
 
     private function headers(): array
     {
-        $apiKey = (string) $this->cfg('apiKey', '');
-        $appId = (string) $this->cfg('appId', 'MyApp/1.0.0');
-        $appVersion = (string) $this->cfg('appVersion', '1.0.0');
+        $apiKey = (string) $this->cfg('jtlApiKey', '');
+        $appId = (string) $this->cfg('jtlXAppId', 'MyApp/1.0.0');
+        $appVersion = (string) $this->cfg('jtlXAppVersion', '1.0.0');
 
         if (!$apiKey || !$this->baseUrl()) {
             throw new \RuntimeException('JTL API not configured.');
@@ -53,7 +53,7 @@ class JtlApiClient
     /** Fetch first matching item by SKU (productNumber) */
     public function getItemBySku(string $sku): ?array
     {
-        $ttl = (int) ($this->cfg('cacheTtl', 300));
+        $ttl = (int) ($this->cfg('jtlTtl', 300));
         $cacheKey = 'jtl_item_' . md5($sku);
 
         return $this->cache->get($cacheKey, function (ItemInterface $item) use ($sku, $ttl) {

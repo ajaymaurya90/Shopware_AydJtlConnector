@@ -31,8 +31,9 @@
             <defaultValue>300</defaultValue>
         </input-field>
         <input-field type="checkbox">
-            <name>jtlEnablePdp</name>
+            <name>enableOnPdp</name>
             <label>Enable on PDP</label>
+            <defaultValue>false</defaultValue>
         </input-field>
 
     </card>

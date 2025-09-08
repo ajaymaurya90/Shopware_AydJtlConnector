@@ -1,9 +1,10 @@
-{% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget.html.twig' %}
 
-{% block page_product_detail_content %}
-    {{ parent() }}
+{% block buy_widget_ordernumber_container %}
+ {{ parent() }}
 
     {% if page.extensions.jtlData is defined %}
+        <h1>Jtl Data</h1>
         <div class="jtl-box mt-4 p-4 border rounded">
             <h3 class="h5 mb-2">Live data from JTL</h3>
             <dl class="row">
@@ -34,5 +35,7 @@
                 {% endif %}
             </dl>
         </div>
+        {% else %}
+        <h1>No Jtl Data Fetched</h1>
     {% endif %}
 {% endblock %}
